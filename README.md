@@ -1,4 +1,17 @@
 # Lock pattern generator
 
-This is a Python script to generate "Android like" lock patterns in svg format.
+## Introduction
+
+This is a Python script to generate "Android like" lock patterns in svg format. The image bellow is an exemple of the svg files that can be generated.
+
 ![Exemple lock pattern generated with the script](./exemple_lock_pattern.svg)
+
+I writed this script because I needed 120 of these lock patterns for an [orienteering](https://en.wikipedia.org/wiki/Orienteering) project. I was in charge of printing the checkpoints with such lock patterns on each of them.
+
+The script is made to generate nice looking lock patterns:
+- A segment between two nodes doesn't appear twice in a pattern.
+- Angles between segments at nodes are higher than 45 degrees.
+
+## Settup
+
+## Usage
