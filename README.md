@@ -14,4 +14,35 @@ The script is made to generate nice looking lock patterns:
 
 ## Settup
 
+Clone the repository.
+
+Create and activate a virtual environment.
+
+```
+python -m virtualenv env
+./env/scripts/activate.ps1
+```
+
+install packages in requirements.txt
+
+```
+pip install requirements.txt
+```
+
 ## Usage
+
+Exemple:
+
+```
+python lock_pattern_generator.py --pattern_number 10 --min_node 2 --max_node 6
+```
+
+Options:
+
+| Option           | Description                          | Default |
+|------------------|--------------------------------------|---------|
+| --pattern_number | Number of patterns to generate       | 5       |
+| --min_node       | Minimum number of connected nodes    | 2       |
+| --max_node       | Maximum number of connected nodes    | 5       |
+
+The svg's are generated in the \out folder.

@@ -114,15 +114,15 @@ def generate_svg(template, pattern, id):
 )
 @click.option(
     '--min_node',
-    prompt='Minimum number of nodes',
+    prompt='Minimum number of connected nodes',
     default=2,
-    help='Minimum number of nodes.'
+    help='Minimum number of connected nodes.'
 )
 @click.option(
     '--max_node',
-    prompt='Maximum number of nodes',
+    prompt='Maximum number of connected nodes',
     default=5,
-    help='Maximum number of nodes.'
+    help='Maximum number of connected nodes.'
 )
 def generator(pattern_number, min_node, max_node):
     """Generate random "Android like" lock patterns in svg format."""
