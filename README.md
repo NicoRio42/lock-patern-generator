@@ -45,4 +45,4 @@ Options:
 | --min_node       | Minimum number of connected nodes    | 2       |
 | --max_node       | Maximum number of connected nodes    | 5       |
 
-The svg's are generated in the \out folder.
+The svg files are generated in the \out folder. An index Excel file is also generated.

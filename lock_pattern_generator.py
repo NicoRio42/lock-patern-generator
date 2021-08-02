@@ -4,6 +4,7 @@ import random
 import math
 
 import click
+from openpyxl import Workbook
 
 def angle_between_segments(nodes):
     """Return the angle formed by 3 consecutives nodes of the pattern
@@ -58,7 +59,8 @@ def generate_node(pattern):
                 nodes_list = [j for j in nodes_list if j != pattern[i]]
     
         # No angles lower than 45 degrees
-        nodes_list = [j for j in nodes_list if angle_between_segments([pattern[-2], pattern[-1], j]) > 45]
+        nodes_list = [j for j in nodes_list if \
+            angle_between_segments([pattern[-2], pattern[-1], j]) > 45]
     
     # Return None if the is no possible node
     if nodes_list:
@@ -92,7 +94,7 @@ def generate_svg(template, pattern, id):
 
     polyline.setAttribute('points', points)
 
-    # Create "in" directory if it don't already exists
+    # Create "out" directory if it don't already exists
     if not os.path.exists(r".\out"):
         os.mkdir(r".\out")
 
@@ -144,17 +146,29 @@ def generator(pattern_number, min_node, max_node):
                     break
             
             # Not twice the same pattern
-            if pattern not in patterns:
+            if pattern not in patterns or reversed(pattern) not in patterns:
                 break
+        
         patterns.append(pattern)
-    
-    print(patterns)
 
     id = 1
 
+    # Index excel file initialisation
+    wb = Workbook()
+    ws1 = wb.active
+    ws1.append(['Id', 'Pattern'])
+
     for pattern in patterns:
         generate_svg(template, pattern, id)
+        # Adding line to Excel file
+        ws1.append([id, int(''.join([str(i) for i in pattern]))])
         id += 1
+    
+    xlsx_filename = os.path.join('out', 'index.xlsx')
+    # Create "out" directory if it don't already exists
+    if not os.path.exists(r".\out"):
+        os.mkdir(r".\out")
+    wb.save(filename = xlsx_filename)
 
 if __name__ == '__main__':
     generator()
