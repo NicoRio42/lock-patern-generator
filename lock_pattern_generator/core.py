@@ -26,11 +26,14 @@ def angle_between_segments(nodes):
             y = 2
         coord.append([x, y])
     
-    angle = math.atan2(coord[2][1] - coord[1][1], coord[2][0] - \
-        coord[1][0]) - math.atan2(coord[0][1] - coord[1][1], coord[0][0] - \
-        coord[1][0])
-    #return abs(math.degrees(angle))
-    return math.degrees(angle)
+    angle = abs(math.degrees(math.atan2(coord[2][1] - coord[1][1], \
+        coord[2][0] - coord[1][0]) - math.atan2(coord[0][1] - coord[1][1], \
+        coord[0][0] - coord[1][0])))
+        
+    if angle <= 180:
+        return angle
+    else:
+        return 360 - angle
 
 def generate_node(pattern):
     last_node = pattern[-1]

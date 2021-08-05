@@ -2,3 +2,4 @@
 env
 out
 log.md
+__pycache__
