@@ -29,7 +29,7 @@ def angle_between_segments(nodes):
     angle = abs(math.degrees(math.atan2(coord[2][1] - coord[1][1], \
         coord[2][0] - coord[1][0]) - math.atan2(coord[0][1] - coord[1][1], \
         coord[0][0] - coord[1][0])))
-        
+
     if angle <= 180:
         return angle
     else:
@@ -150,8 +150,10 @@ def generator(pattern_number, min_node, max_node):
                 else:
                     break
             
-            # Not twice the same pattern
-            if pattern not in patterns or reversed(pattern) not in patterns:
+            # Not twice the same pattern and no cycle patterns
+            reversed_pattern = pattern[::-1]
+            if pattern not in patterns and reversed_pattern not in patterns \
+                and pattern[0] != pattern[-1]:
                 break
         
         patterns.append(pattern)
@@ -161,12 +163,17 @@ def generator(pattern_number, min_node, max_node):
     # Index excel file initialisation
     wb = Workbook()
     ws1 = wb.active
-    ws1.append(['Id', 'Pattern'])
+    ws1.append(['Id', 'Pattern', 'Reversed pattern'])
 
     for pattern in patterns:
         generate_svg(template, pattern, id)
         # Adding line to Excel file
-        ws1.append([id, int(''.join([str(i) for i in pattern]))])
+        reversed_pattern = pattern[::-1]
+        ws1.append([
+            id,
+            int(''.join([str(i) for i in pattern])),
+            int(''.join([str(i) for i in reversed_pattern]))
+        ])
         id += 1
     '''
     tab = Table(displayName="Table1", ref=("A1:E" + str(len(patterns) + 2)))
