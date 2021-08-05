@@ -5,6 +5,7 @@ import math
 
 import click
 from openpyxl import Workbook
+from openpyxl.worksheet.table import Table, TableStyleInfo
 
 def angle_between_segments(nodes):
     """Return the angle formed by 3 consecutives nodes of the pattern
@@ -28,7 +29,8 @@ def angle_between_segments(nodes):
     angle = math.atan2(coord[2][1] - coord[1][1], coord[2][0] - \
         coord[1][0]) - math.atan2(coord[0][1] - coord[1][1], coord[0][0] - \
         coord[1][0])
-    return abs(math.degrees(angle))
+    #return abs(math.degrees(angle))
+    return math.degrees(angle)
 
 def generate_node(pattern):
     last_node = pattern[-1]
@@ -163,7 +165,19 @@ def generator(pattern_number, min_node, max_node):
         # Adding line to Excel file
         ws1.append([id, int(''.join([str(i) for i in pattern]))])
         id += 1
-    
+    '''
+    tab = Table(displayName="Table1", ref=("A1:E" + str(len(patterns) + 2)))
+
+    # Add a default style with striped rows and banded columns
+    style = TableStyleInfo(name="TableStyleMedium9",
+        showFirstColumn=False,
+        showLastColumn=False,
+        showRowStripes=True,
+        showColumnStripes=True
+    )
+    tab.tableStyleInfo = style
+    ws1.add_table(tab)
+    '''
     xlsx_filename = os.path.join('out', 'index.xlsx')
     # Create "out" directory if it don't already exists
     if not os.path.exists(r".\out"):

@@ -34,14 +34,14 @@ pip install requirements.txt
 Exemple:
 
 ```
-python lock_pattern_generator.py --pattern_number 10 --min_node 2 --max_node 6
+python core.py --pattern_number 10 --min_node 2 --max_node 6
 ```
 
 Options:
 
 | Option           | Description                          | Default |
 |------------------|--------------------------------------|---------|
-| --pattern_number | Number of patterns to generate       | 5       |
+| --pattern_number | Number of patterns to generate       | 1       |
 | --min_node       | Minimum number of connected nodes    | 2       |
 | --max_node       | Maximum number of connected nodes    | 5       |
 
