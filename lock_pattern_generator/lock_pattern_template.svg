@@ -1,16 +1,16 @@
-<svg height="512" viewBox="0 0 64 64" width="512"
+<svg height="20mm" viewBox="0 0 64 64" width="20mm"
     xmlns="http://www.w3.org/2000/svg">
     <g id="Screen_Lock_Pattern" data-name="Screen Lock Pattern">
-        <circle cx="11" cy="11" r="4"/>
-        <circle cx="32" cy="11" r="4"/>
-        <circle cx="53" cy="11" r="4"/>
-        <circle cx="11" cy="32" r="4"/>
-        <circle cx="32" cy="32" r="4"/>
-        <circle cx="53" cy="32" r="4"/>
-        <circle cx="11" cy="53" r="4"/>
-        <circle cx="32" cy="53" r="4"/>
-        <circle cx="53" cy="53" r="4"/>
+        <circle cx="11" cy="11" r="3"/>
+        <circle cx="32" cy="11" r="3"/>
+        <circle cx="53" cy="11" r="3"/>
+        <circle cx="11" cy="32" r="3"/>
+        <circle cx="32" cy="32" r="3"/>
+        <circle cx="53" cy="32" r="3"/>
+        <circle cx="11" cy="53" r="3"/>
+        <circle cx="32" cy="53" r="3"/>
+        <circle cx="53" cy="53" r="3"/>
         <polyline points="11,11 32,32"
-        style="fill:none;stroke:black;stroke-width:3"/>
+        style="fill:none;stroke:black;stroke-width:2"/>
     </g>
 </svg>
